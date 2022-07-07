@@ -81,9 +81,3 @@ export async function createApolloServer(
 // export interface TwitterResolverContext {
 //   db: Db;
 // }
-
-//now that we have this context type, we can use it in our resolvers wiht autocompletion (it's the third argument)
-//(_, __, { db: _db }) => {
-  //_ and __ mean unused, and typescript doesnt warn us about them.
-
-   

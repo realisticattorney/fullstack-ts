@@ -5,7 +5,7 @@ export interface TwitterResolverContext {
   db: Db;
 }
 
-const resolvers: Resolvers<TwitterResolverContext> = {
+const resolvers: Resolvers< = {
   Query,
 };
 
