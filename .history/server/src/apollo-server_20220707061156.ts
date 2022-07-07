@@ -74,5 +74,4 @@ export async function createApolloServer(
 //these generated files are something you shouldn't touch
 //we you want them to be up to date as your schema evolves, you just use the same script to generate them again
 //we've got models such as User, Tweet, etc. We've have QueryResolvers
-//and subscription stuff, like events. pretty advanced stuff.
-
+//and 

@@ -65,14 +65,3 @@ export async function createApolloServer(
 //Getting the resolvers out and breaking them down into subobjects.
 
 //Now we will add types to our resolvers
-//right now, my resolvers can return whatever they want they're not restricted to what the schema says.
-//For that we will generate Typescript code from our graphql schema
-//as our resolvers are in... Typescript.
-//cd server
-//yarn codegen
-//what just happened? we generated a new file called resolvers-types.ts
-//these generated files are something you shouldn't touch
-//we you want them to be up to date as your schema evolves, you just use the same script to generate them again
-//we've got models such as User, Tweet, etc. We've have QueryResolvers
-//and subscription stuff, like events. pretty advanced stuff.
-
