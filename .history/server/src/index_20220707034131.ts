@@ -1,5 +1,3 @@
-import { createApolloServer } from './apollo-server';
-import { createServer } from 'http';
 import * as chalk from 'chalk';
 import * as express from 'express';
 import { watchClientBuild } from './build-client';
@@ -23,17 +21,12 @@ async function main() {
 
   app.use('/static', express.static(STATIC_ROOT_FOLDER_PATH));
 
-  const httpServer = createServer(app);
-  const apolloServer = await createApolloServer(db, httpServer, app);
-
   await new Promise<void>((resolve) =>
     app.listen(PORT, () => {
       console.log(
         [
           chalk.bgMagentaBright.black.bold(' GraphQL API listening on   '),
-          chalk.bgWhite.black(
-            `\thttp://localhost:${PORT}${apolloServer.graphqlPath}\t`
-          ),
+          chalk.bgWhite.black(`\thttp://localhost:${PORT}${''}\t`),
         ].join(' ')
       );
       resolve();

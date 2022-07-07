@@ -31,9 +31,7 @@ async function main() {
       console.log(
         [
           chalk.bgMagentaBright.black.bold(' GraphQL API listening on   '),
-          chalk.bgWhite.black(
-            `\thttp://localhost:${PORT}${apolloServer.graphqlPath}\t`
-          ),
+          chalk.bgWhite.black(`\thttp://localhost:${PORT}${''}\t`),
         ].join(' ')
       );
       resolve();
