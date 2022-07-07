@@ -7,8 +7,7 @@ import { GraphQLFileLoader } from '@graphql-tools/graphql-file-loader';
 import { loadSchemaSync } from '@graphql-tools/load';
 import { addResolversToSchema } from '@graphql-tools/schema';
 import { GRAPHQL_SCHEMA_PATH } from './constants'; //this is just a constant with the path to the schema
-import { resolvers } from './resolvers'; //these are the resolvers
-
+import {}
 const SCHEMA = loadSchemaSync(GRAPHQL_SCHEMA_PATH, {
   //this loads the schema, transforms it into the right data structure
   loaders: [new GraphQLFileLoader()], //this loader is designed to parse .graphql files
@@ -27,6 +26,7 @@ export async function createApolloServer(
   //so it can return an empty array. as it's returning the array, and none of the objects is null
   //Primitive types for these are: String, Boolean, Int, Float, ID
 
+ 
   const server = new ApolloServer({
     //apollo server
 
@@ -63,3 +63,5 @@ export async function createApolloServer(
 //then add the resolvers to the schema.
 
 //Getting the resolvers out and breaking them down into subobjects.
+
+  

@@ -7,7 +7,6 @@ import { GraphQLFileLoader } from '@graphql-tools/graphql-file-loader';
 import { loadSchemaSync } from '@graphql-tools/load';
 import { addResolversToSchema } from '@graphql-tools/schema';
 import { GRAPHQL_SCHEMA_PATH } from './constants'; //this is just a constant with the path to the schema
-import { resolvers } from './resolvers'; //these are the resolvers
 
 const SCHEMA = loadSchemaSync(GRAPHQL_SCHEMA_PATH, {
   //this loads the schema, transforms it into the right data structure
@@ -26,6 +25,25 @@ export async function createApolloServer(
   //[Suggestion!]! outer ! means it has to return an array. inner ! means none of the elements in the array can be null.
   //so it can return an empty array. as it's returning the array, and none of the objects is null
   //Primitive types for these are: String, Boolean, Int, Float, ID
+
+  const resolvers = {
+    Query: {
+      currentUser: () => {
+        return {
+          id: '123',
+          name: 'John Doe',
+          handle: 'johndoe',
+          coverUrl: '',
+          avatarUrl: '',
+          createdAt: '',
+          updatedAt: '',
+        };
+      },
+      suggestions: () => {
+        return [];
+      },
+    },
+  };
 
   const server = new ApolloServer({
     //apollo server
@@ -59,7 +77,5 @@ export async function createApolloServer(
 //onto the root of our project. Why? Because these types will be the single source of truth for any types going over the network back and forth
 //so they will be used by the client app as well.
 
-//move the schema to a .graphql file. Import it, to this js file, compile it, load it (loadSchemaSync) returning a schema object like gql` ...`
-//then add the resolvers to the schema.
-
 //Getting the resolvers out and breaking them down into subobjects.
+
