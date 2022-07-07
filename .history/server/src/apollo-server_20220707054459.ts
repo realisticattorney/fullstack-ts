@@ -1,5 +1,5 @@
 import { ApolloServerPluginDrainHttpServer } from 'apollo-server-core';
-import { ApolloServer, ExpressContext } from 'apollo-server-express';
+import { ApolloServer, ExpressContext, gql } from 'apollo-server-express';
 import * as express from 'express';
 import { Server } from 'http';
 import Db from './db';
@@ -10,7 +10,7 @@ import { GRAPHQL_SCHEMA_PATH } from './constants'; //this is just a constant wit
 
 const SCHEMA = loadSchemaSync(GRAPHQL_SCHEMA_PATH, {
   //this loads the schema, transforms it into the right data structure
-  loaders: [new GraphQLFileLoader()], //this loader is designed to parse .graphql files
+  loaders: [new GraphQLFileLoader()],//
 });
 
 export async function createApolloServer(
@@ -47,11 +47,8 @@ export async function createApolloServer(
 
   const server = new ApolloServer({
     //apollo server
-
-    schema: addResolversToSchema({
-      schema: SCHEMA,
-      resolvers, //moved resolver to addResolversToSchema
-    }),
+    typeDefs,
+    resolvers,
     context: () => ({ db }), //context (express-concept) object always available in any of our resolvers (one of the arguments you automatically get)
     //we'll use it as a memory to store data from one method from the Query resolver to another (like finding a tweet but then use that twwet id to find its users etc)
     //but context can be either a cb function that returns an object, or an object. If it's just an object it remains the same throughout the whole server (things will be left in memory). But if it's a cb function, it will be a clean slate for every call. Useful if you want to use it for an Oauth token or something stateless so it doesn't leak between requests.

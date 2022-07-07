@@ -1,5 +1,5 @@
 import { ApolloServerPluginDrainHttpServer } from 'apollo-server-core';
-import { ApolloServer, ExpressContext } from 'apollo-server-express';
+import { ApolloServer, ExpressContext, gql } from 'apollo-server-express';
 import * as express from 'express';
 import { Server } from 'http';
 import Db from './db';
@@ -10,7 +10,7 @@ import { GRAPHQL_SCHEMA_PATH } from './constants'; //this is just a constant wit
 
 const SCHEMA = loadSchemaSync(GRAPHQL_SCHEMA_PATH, {
   //this loads the schema, transforms it into the right data structure
-  loaders: [new GraphQLFileLoader()], //this loader is designed to parse .graphql files
+  loaders: [new GraphQLFileLoader()], //this loader it to parse .graphql files
 });
 
 export async function createApolloServer(
