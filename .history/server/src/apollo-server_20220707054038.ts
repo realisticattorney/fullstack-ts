@@ -3,15 +3,6 @@ import { ApolloServer, ExpressContext, gql } from 'apollo-server-express';
 import * as express from 'express';
 import { Server } from 'http';
 import Db from './db';
-import { GraphQLFileLoader } from "@graphql-tools/graphql-file-loader"
-import { loadSchemaSync } from "@graphql-tools/load"
-import { addResolversToSchema } from "@graphql-tools/schema"
-import { GRAPHQL_SCHEMA_PATH } from "./constants" //this is just a constant with the path to the schema
-
-const SCHEMA = loadSchemaSync(GRAPHQL_SCHEMA_PATH, { //this loads the schema, transforms it into the right data structure
-  loaders: [new GraphQLFileLoader()],
-})
-
 export async function createApolloServer(
   db: Db, //won't be using it now
   httpServer: Server,
@@ -24,7 +15,27 @@ export async function createApolloServer(
   //[Suggestion!]! outer ! means it has to return an array. inner ! means none of the elements in the array can be null.
   //so it can return an empty array. as it's returning the array, and none of the objects is null
   //Primitive types for these are: String, Boolean, Int, Float, ID
-  
+  const typeDefs = gql`
+    type Query {
+      currentUser: User!
+      suggestions: [Suggestion!]!
+    }
+    type User {
+      id: String!
+      name: String!
+      handle: String!
+      coverUrl: String!
+      avatarUrl: String!
+      createdAt: String!
+      updatedAt: String!
+    }
+    type Suggestion {
+      name: String!
+      handle: String!
+      avatarUrl: String!
+      reason: String!
+    }
+  `;
 
   const resolvers = {
     Query: {
@@ -73,10 +84,5 @@ export async function createApolloServer(
 
 
 //next step: modularize the code. Getting the schema out
-//onto the root of our project. Why? Because these types will be the single source of truth for any types going over the network back and forth
-//so they will be used by the client app as well. 
-
-
-
-
 //Getting the resolvers out.
+//onto the root of our project. Why? 

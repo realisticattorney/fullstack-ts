@@ -6,11 +6,8 @@ import Db from './db';
 import { GraphQLFileLoader } from "@graphql-tools/graphql-file-loader"
 import { loadSchemaSync } from "@graphql-tools/load"
 import { addResolversToSchema } from "@graphql-tools/schema"
-import { GRAPHQL_SCHEMA_PATH } from "./constants" //this is just a constant with the path to the schema
+import { GRAPHQL_SCHEMA_PATH } from "./constants" //this is just a constant with the path 
 
-const SCHEMA = loadSchemaSync(GRAPHQL_SCHEMA_PATH, { //this loads the schema, transforms it into the right data structure
-  loaders: [new GraphQLFileLoader()],
-})
 
 export async function createApolloServer(
   db: Db, //won't be using it now

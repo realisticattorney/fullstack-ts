@@ -8,7 +8,7 @@ import { loadSchemaSync } from "@graphql-tools/load"
 import { addResolversToSchema } from "@graphql-tools/schema"
 import { GRAPHQL_SCHEMA_PATH } from "./constants" //this is just a constant with the path to the schema
 
-const SCHEMA = loadSchemaSync(GRAPHQL_SCHEMA_PATH, { //this loads the schema, transforms it into the right data structure
+const SCHEMA = loadSchemaSync(GRAPHQL_SCHEMA_PATH, { //this loads the schema, transforms it into the 
   loaders: [new GraphQLFileLoader()],
 })
 
