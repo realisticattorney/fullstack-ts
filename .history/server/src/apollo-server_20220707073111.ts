@@ -88,4 +88,3 @@ export async function createApolloServer(
   //_ and __ mean unused, and typescript doesnt warn us about them.
 
 //from what I guess, the context object interface was set on resolvers.ts, the I don't need to put a ! on TS to say hey, that's mandatory.. So when I added a thing: any[] property aside from db, I was required the context cb function to return a {db, thing}
-//and I was able to use that thing array on the resolvers (again, from the third argument which is the context object) aaand, the thing, being an array, already offered me the array methods for free.

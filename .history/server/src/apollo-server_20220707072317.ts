@@ -7,7 +7,7 @@ import { GraphQLFileLoader } from '@graphql-tools/graphql-file-loader';
 import { loadSchemaSync } from '@graphql-tools/load';
 import { addResolversToSchema } from '@graphql-tools/schema';
 import { GRAPHQL_SCHEMA_PATH } from './constants'; //this is just a constant with the path to the schema
-import resolvers, { TwitterResolverContext } from './resolvers'; //these are the resolvers
+import resolvers from './resolvers'; //these are the resolvers
 
 const SCHEMA = loadSchemaSync(GRAPHQL_SCHEMA_PATH, {
   //this loads the schema, transforms it into the right data structure
@@ -33,9 +33,8 @@ export async function createApolloServer(
     schema: addResolversToSchema({
       schema: SCHEMA,
       resolvers, //moved resolver to addResolversToSchema
-    }),  
-    // (): TwitterResolverContext => ({ db })//this is what that type is checking for
-    context: (): TwitterResolverContext => ({ db }), //context (express-concept) object always available in any of our resolvers (one of the arguments you automatically get)
+    }),
+    context: ():  => ({ db }), //context (express-concept) object always available in any of our resolvers (one of the arguments you automatically get)
     //we'll use it as a memory to store data from one method from the Query resolver to another (like finding a tweet but then use that twwet id to find its users etc)
     //but context can be either a cb function that returns an object, or an object. If it's just an object it remains the same throughout the whole server (things will be left in memory). But if it's a cb function, it will be a clean slate for every call. Useful if you want to use it for an Oauth token or something stateless so it doesn't leak between requests.
     plugins: [
@@ -87,5 +86,4 @@ export async function createApolloServer(
 //(_, __, { db: _db }) => {
   //_ and __ mean unused, and typescript doesnt warn us about them.
 
-//from what I guess, the context object interface was set on resolvers.ts, the I don't need to put a ! on TS to say hey, that's mandatory.. So when I added a thing: any[] property aside from db, I was required the context cb function to return a {db, thing}
-//and I was able to use that thing array on the resolvers (again, from the third argument which is the context object) aaand, the thing, being an array, already offered me the array methods for free.
+  

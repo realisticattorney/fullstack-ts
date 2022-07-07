@@ -3,7 +3,8 @@ import * as ReactDOM from 'react-dom';
 import { ErrorBoundary, FallbackProps } from 'react-error-boundary';
 import App from './App';
 
-import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
+
+
 
 const app = document.getElementById('app');
 
