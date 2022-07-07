@@ -10,4 +10,4 @@ export default resolvers;
 
 // const resolvers: Resolvers = {
 //   Query,
-// }; this stills let me do what I want with Query.ts
+// }; this stills let me 

@@ -76,5 +76,4 @@ export async function createApolloServer(
 //we've got models such as User, Tweet, etc. We've have QueryResolvers
 //and subscription stuff, like events. pretty advanced stuff.
 
-//we imported the resolvers-types.generated file into our resolvers.ts file
-
+//we imported the resolvers-types.generated file

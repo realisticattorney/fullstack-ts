@@ -1,7 +1,7 @@
 import { QueryResolvers } from '../resolvers-types.generated';
 
 const queryTwitterResolver: QueryResolvers = {
-  currentUser: () => {
+  currentUse: () => {
     return {
       id: '123',
       name: 'John Doe',
@@ -18,6 +18,3 @@ const queryTwitterResolver: QueryResolvers = {
 };
 
 export default queryTwitterResolver;
-
-
-

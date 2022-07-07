@@ -18,6 +18,3 @@ const queryTwitterResolver: QueryResolvers = {
 };
 
 export default queryTwitterResolver;
-
-
-
