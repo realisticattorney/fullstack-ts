@@ -77,10 +77,10 @@ const App: React.FC = () => {
     .filter(isDefined);
 
   const { loading, error, data } = useGetCurrentUserQuery(); //this pregenerated hook has the right query and the right variables pre-braked in so we don't pass in anything
-  if (loading) return <p>Loading...</p>; //for now we return these cursory things just in case we get loading no data or error.
+  if (loading) return <p>Loading...</p>;    //for now we return these cursory things just in case we get l
   if (error) return <p>Error: {error}</p>;
   if (!data) return <p>No data.</p>;
-  const { currentUser, suggestions = [] } = data; //we want to pickup data so as to not use the dummy data
+  const { currentUser, suggestions = [] } = data;
 
   return (
     <div>

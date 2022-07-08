@@ -52,6 +52,7 @@ const SUGGESTIONS = [
   },
 ];
 
+
 export const GET_CURRENT_USER = gql`
   query GetCurrentUser {
     currentUser {
@@ -68,19 +69,16 @@ export const GET_CURRENT_USER = gql`
       reason
     }
   }
-`; // this is the qery just as we see it in apollo GUI
+`// this is the qery just as we see it in apollo GUI 
+
+
+
 
 const App: React.FC = () => {
   const { favorites: rawFavorites } = CURRENT_USER;
   const favorites = (rawFavorites || [])
     .map((f) => f.tweet?.id)
     .filter(isDefined);
-
-  const { loading, error, data } = useGetCurrentUserQuery(); //this pregenerated hook has the right query and the right variables pre-braked in so we don't pass in anything
-  if (loading) return <p>Loading...</p>; //for now we return these cursory things just in case we get loading no data or error.
-  if (error) return <p>Error: {error}</p>;
-  if (!data) return <p>No data.</p>;
-  const { currentUser, suggestions = [] } = data; //we want to pickup data so as to not use the dummy data
 
   return (
     <div>
@@ -99,8 +97,12 @@ const App: React.FC = () => {
 };
 export default App;
 
-//So I've moved to the client. It has some dummy data and a layout for the twitter page.
-//imported apollo provider and apollo client. The ApolloProvider in a component based on the React.useContext API to provide the query and mutation data throughout the app, and to be able to fire off those queries from anywhere in the app.
-//the ApolloClient.
 
-//so the generated types includes useGetCurrentUserQuery which is a function that returns the result of a query Apollo.useQuery(GetUserQuery, GetUserQueryVariables). The former is the query, and the latter is the variables (cleverly, just a [x]: string each attribute in the query is of type string). In a REST API the GetUserQueryVariables would be included in the URL.
+
+
+
+//So I've moved to the client. It has some dummy data and a layout for the twitter page. 
+//imported apollo provider and apollo client. The ApolloProvider in a component based on the React.useContext API to provide the query and mutation data throughout the app, and to be able to fire off those queries from anywhere in the app.
+//the ApolloClient. 
+
+//so the generated types includes useGetCurrentUserQuery which is a function that returns the result of a query Apollo.useQuery(GetUserQuery, GetUserQueryVariables). The former is the query, and the latter is the variables (cleverly, just a [x]: string each variable in the query is of ).
