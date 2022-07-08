@@ -92,5 +92,4 @@ export async function createApolloServer(
 
 
 //So I've moved to the client. It has some dummy data and a layout for the twitter page. 
-//imported apollo provider and apollo client. The ApolloProvider in a component based on the React.useContext API to provide the query and mutation data throughout the app, and to be able to fire off those queries from anywhere in the app.
-//the ApolloClient. 
+//imported apollo provider and apollo client. The ApolloProvider in a component based on the React.useContext API to provide the q

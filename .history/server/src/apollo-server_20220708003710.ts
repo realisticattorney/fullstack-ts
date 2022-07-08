@@ -91,6 +91,4 @@ export async function createApolloServer(
 //and I was able to use that thing array on the resolvers (again, from the third argument which is the context object) aaand, the thing, being an array, already offered me the array methods for free.
 
 
-//So I've moved to the client. It has some dummy data and a layout for the twitter page. 
-//imported apollo provider and apollo client. The ApolloProvider in a component based on the React.useContext API to provide the query and mutation data throughout the app, and to be able to fire off those queries from anywhere in the app.
-//the ApolloClient. 
+//So I've moved to the client. It has some dummy data and a layout for the twitter page. imported gql to the 

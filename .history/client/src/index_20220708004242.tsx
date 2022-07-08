@@ -58,10 +58,3 @@ ReactDOM.render(
 //Error Boundary in React is a catch (so we don't watch the console for the error, just the rendered DOM)
 //ApolloProvider is a function that takes a client as props and returns the App, Making methods from the clinet object available to the App (makeQueries etc.)
  
-
-//In an application that uses React, Node, and GraphQL on both the front and back end, there are four separate applications: the React application, the Node application, the GraphQL server, and the ApolloClient object. 
-
-//So the apolloClient returns an object to make those queries to the GraphQL/Apollo server. and we have a wrapper component to wrap the entire application and make those queries and responses available to the entire application.
-
-//the generation of the types is done by a libraby called graphql-codegen or something. and there's a codegen.yml which is ofc to configure the script to search for the graphql files across whole directories and specifying the output file location and what kind of output file to generate (typescript in our case).
-//there's a codegen.yml file for this in the server folder. and another one for the client folder. in the servers I have a plugin for typescript-resolvers, and operations generated on the client side. 
