@@ -78,7 +78,7 @@ ReactDOM.render(
 //we import this function from the server/index.ts file and call it in the main() function.
 //the Apollo server is a middleware that will be called on every request.
 //NOW WE're in THE APOLLO SERVER GUI: we don't have any resolvers yet (nothing that will return anything for the schema used in this apollo server) but we do have a schema. The schema, at runtime (when there's an incoming request for the query currentUser I made from the apollo server gui), will check that I can't return a non nullable field and that's the error. So in this case the GraphQL infrarstructure that's part of the Apollo server will return the error. At compile time, it will be the type information that is built from the schema, and you will have typescript doing the enforcement (so the generated types that I see checking the types when I'm writing the resolvers, for instance).
-//so our test query failed. Now will make the resolvers. These functions reads parts of the requests (equivalent to the /:id, for instance, and the function itself would be like GET /user, for instance). So each resolver is a small part of a query as a user might ask for many different things at once.
+//so our test query failed. Now will make the resolvers. These functions reads parts of the requests (equivalent to the /:id, for instance, and the function itself would be like GET /user, for instance). So each resolver is a small part of a query as a user might ask for many different things at once. 
 //each resolver function has to match the schema's with one of the query types (eg.: Query { [queryType]: Entity }. The resolver has to return the Entity type specified in the schema.
 //now we add those resolvers to the Apollo server when creating it. AND we add the context: () => { db } which is SUPER IMPORTANT. !!!!!+!+!+!+!!
 //the context is both a reference/a way to pass the db to the resolvers so as to access the database and manipulate it base of the request, and the params of the request, if any. BUT WE CAN ALSO STORE STUFF IN THAT CONTEXT OBJECT THAT OTHER RESOLVERS CAN ACCESS THROUGHOUT THE LIFE OF THAT REQUEST.
@@ -90,11 +90,11 @@ ReactDOM.render(
 //so right now I have the .graphql schema loaded in my Apollo server, checking the types of whatever I return from the resolvers (runtime checks) but I dont have anything that checks whether the resolvers return the correct types.
 //I run codegen from the server directory and voila, got the types for the  ... in a file that I shouldn't touch. Whenever I change my schema, I run codegen and it generates the types for the schema.
 //this file of generated resolver-types has a mapping from the graphql types to the typescript types. So when I call the resolvers (javascript), I can use the types that I've generated for the types that I've defined in the schema.
-//the way those generated types check everything is simply brilliant. I don't fucking get it.
-//Resolvers. Yes, we have the db taken from the context, and we can call the db methods on it to get certain parts of the database. Then do somthing more and return data. In between, add some of it as a reference to the context object, likely temporarely, so that other resolvers can access it.
-//then we import an interface for the db object (instance of DB class) and put it on a new interface where the db: DB is expected. as we put it as the returned value of the resolvers so that we have the methods in autocompletion. resolvers: Resolvers<TwitterResolverContext>
-//TwitterResolverContext can be expanded as we created it.
-//when in this interface for the resolvers we say that certain resolver should return a certain type OR A PROMISE THAT RESOLVER INTO A CERTAIN TYPE, it's telling us we can make an ASYNC function, which is awesome.
+//the way those generated types check everything is simply brilliant. I don't fucking get it. 
+//
+
+
+
 
 //
 //
