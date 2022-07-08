@@ -56,5 +56,4 @@ ReactDOM.render(
 );
 
 //Error Boundary in React is a catch (so we don't watch the console for the error, just the rendered DOM)
-//ApolloProvider is a function that takes a client as props and returns the App, Making methods from the clinet object available to the App (makeQueries etc.)
- 
+//ApolloProvider is a function that 

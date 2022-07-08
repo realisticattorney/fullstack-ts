@@ -4,8 +4,8 @@ import Header from './Header';
 import LeftSidebar from './LeftSidebar';
 import RightBar from './RightBar';
 import Timeline from './Timeline';
-import { gql } from '@apollo/client';
-import { useGetCurrentUserQuery } from './generated/graphql';
+
+
 
 const CURRENT_USER = {
   name: 'Stu Dent',
