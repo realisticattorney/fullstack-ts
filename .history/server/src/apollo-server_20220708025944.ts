@@ -11,7 +11,7 @@ import resolvers, { TwitterResolverContext } from './resolvers'; //these are the
 
 const SCHEMA = loadSchemaSync(GRAPHQL_SCHEMA_PATH, {
   //this loads the schema, transforms it into the right data structure
-  loaders: [new GraphQLFileLoader()], //this loader is designed to parse .graphql files returning an object
+  loaders: [new GraphQLFileLoader()], //this loader is designed to parse .graphql files
 });
 
 export async function createApolloServer(  ///these are the arguments for the ApolloServer constructor

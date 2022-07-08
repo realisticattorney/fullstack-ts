@@ -86,8 +86,7 @@ ReactDOM.render(
 //we break down our resolvers object into a file for each entity, and one for the query type, and then import those into a resolvers file which we then will import into the Apollo server file.
 //` ` these is a tagged template string
 //we strip our schema out of that tagged template string and put it in a file at the root of the project as it will be used by the client side app as well. And we make that schema a .graphql file to gain more functionality that gets difficult to use when it's in the gql`` tag.
-//we import loaders to get the .graphql file to be loaded into the Apollo server by being parsed into a format that the Apollo server can understand ((GraphQLFileLoader returns an object when it loads a .graphql schema. There are other loaders to parse it into json and whatnot).
-
+//we import loaders to get the .graphql file to be loaded into the Apollo server by being parsed into a format that the Apollo server can understand ((GraphQLFileLoader returns an object when it loads a .graphql schema. There are other loaders to parse i)
 
 
 

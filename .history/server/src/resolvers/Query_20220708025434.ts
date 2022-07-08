@@ -2,25 +2,25 @@ import { TwitterResolverContext } from '../resolvers';
 import { QueryResolvers } from '../resolvers-types.generated';
 
 const queryTwitterResolver: QueryResolvers<TwitterResolverContext> = {
-  currentUser: (_, __, { db }) => {
-    const [firstUser] = db.getAllUsers();
-    if (!firstUser)
-      throw new Error(
-        'currentUser was requested, but there are no users in the database'
-      );
-    return firstUser;
+  currentUser: () => {
+    currentUser: (_, __, { db }) => {
+        const [firstUser] = db.getAllUsers();
+        if (!firstUser)
+          throw new Error(
+            'currentUser was requested, but there are no users in the database'
+          );
+        return firstUser;
+      },
+    // return {
+    //   id: '123',
+    //   name: 'John Doe',
+    //   handle: 'johndoe',
+    //   coverUrl: '',
+    //   avatarUrl: '',
+    //   createdAt: '',
+    //   updatedAt: '',
+    // };
   },
-  //   currentUser: () => {
-  // return {
-  //   id: '123',
-  //   name: 'John Doe',
-  //   handle: 'johndoe',
-  //   coverUrl: '',
-  //   avatarUrl: '',
-  //   createdAt: '',
-  //   updatedAt: '',
-  // };
-  //   },
   //suggestions: (_, __, { db: _db }) => { //is gone.
   suggestions: (_, __, { db }) => {
     return db.getAllSuggestions();

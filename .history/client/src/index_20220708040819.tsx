@@ -77,19 +77,7 @@ ReactDOM.render(
 //then it returns the Apollo server into the main() function that's creating the express server
 //we import this function from the server/index.ts file and call it in the main() function.
 //the Apollo server is a middleware that will be called on every request.
-//NOW WE're in THE APOLLO SERVER GUI: we don't have any resolvers yet (nothing that will return anything for the schema used in this apollo server) but we do have a schema. The schema, at runtime (when there's an incoming request for the query currentUser I made from the apollo server gui), will check that I can't return a non nullable field and that's the error. So in this case the GraphQL infrarstructure that's part of the Apollo server will return the error. At compile time, it will be the type information that is built from the schema, and you will have typescript doing the enforcement (so the generated types that I see checking the types when I'm writing the resolvers, for instance).
-//so our test query failed. Now will make the resolvers. These functions reads parts of the requests (equivalent to the /:id, for instance, and the function itself would be like GET /user, for instance). So each resolver is a small part of a query as a user might ask for many different things at once. 
-//each resolver function has to match the schema's with one of the query types (eg.: Query { [queryType]: Entity }. The resolver has to return the Entity type specified in the schema.
-//now we add those resolvers to the Apollo server when creating it. AND we add the context: () => { db } which is SUPER IMPORTANT. !!!!!+!+!+!+!!
-//the context is both a reference/a way to pass the db to the resolvers so as to access the database and manipulate it base of the request, and the params of the request, if any. BUT WE CAN ALSO STORE STUFF IN THAT CONTEXT OBJECT THAT OTHER RESOLVERS CAN ACCESS THROUGHOUT THE LIFE OF THAT REQUEST.
-//context can be a cb function, returning a clean, stateless object every time, or just an stateful object. I don't think this has to do with modifying the db, of course you can modify it even if your context is cb function. The difference I guess is that the thing you reference to and save in this object aside from the db { db, references: { ... } } will be persistent accross subsequent requests.
-//we break down our resolvers object into a file for each entity, and one for the query type, and then import those into a resolvers file which we then will import into the Apollo server file.
-//` ` these is a tagged template string
-//we strip our schema out of that tagged template string and put it in a file at the root of the project as it will be used by the client side app as well. And we make that schema a .graphql file to gain more functionality that gets difficult to use when it's in the gql`` tag.
-//we import loaders to get the .graphql file to be loaded into the Apollo server by being parsed into a format that the Apollo server can understand ((GraphQLFileLoader returns an object when it loads a .graphql schema. There are other loaders to parse it into json and whatnot).
-
-
-
+//NOW WE're in THE APOLLO SERVER GUI: we don't have any resolvers yet (nothing that will return anything for the schema used in this apollo server) but we do have a schema. The schema, at runtime (when there's an incoming request for the query currentUser I made from the apollo server gui), will check that I can't return a non nullable field and that's the error. So in this case the GraphQL infrarstructure that's part of the Apollo server will return the error. At compile time, it will be the type information that is built from the schema, a
 
 
 
