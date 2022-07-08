@@ -52,28 +52,6 @@ const SUGGESTIONS = [
   },
 ];
 
-
-export const GET_CURRENT_USER = gql`
-  query GetCurrentUser {
-    currentUser {
-      id
-      name
-      handle
-      avatarUrl
-      createdAt
-    }
-    suggestions {
-      name
-      handle
-      avatarUrl
-      reason
-    }
-  }
-`// this is the qery just as we see it in apollo GUI 
-
-
-
-
 const App: React.FC = () => {
   const { favorites: rawFavorites } = CURRENT_USER;
   const favorites = (rawFavorites || [])

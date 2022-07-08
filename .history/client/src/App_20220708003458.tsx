@@ -69,8 +69,7 @@ export const GET_CURRENT_USER = gql`
       reason
     }
   }
-`// this is the qery just as we see it in apollo GUI 
-
+`// this is the qery just as we see it in apollo 
 
 
 

@@ -5,7 +5,7 @@ import LeftSidebar from './LeftSidebar';
 import RightBar from './RightBar';
 import Timeline from './Timeline';
 import { gql } from '@apollo/client';
-import { useGetCurrentUserQuery } from './generated/graphql'; //is defines what we can expect to pass in and expect back from a particular query
+import { useGetCurrentUserQuery } from './generated/graphql'; //is defines what we can expect to pass 
 
 const CURRENT_USER = {
   name: 'Stu Dent',
@@ -51,28 +51,6 @@ const SUGGESTIONS = [
     reason: 'Because you follow @MichaelLNorth',
   },
 ];
-
-
-export const GET_CURRENT_USER = gql`
-  query GetCurrentUser {
-    currentUser {
-      id
-      name
-      handle
-      avatarUrl
-      createdAt
-    }
-    suggestions {
-      name
-      handle
-      avatarUrl
-      reason
-    }
-  }
-`// this is the qery just as we see it in apollo GUI 
-
-
-
 
 const App: React.FC = () => {
   const { favorites: rawFavorites } = CURRENT_USER;
