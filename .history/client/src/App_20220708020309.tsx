@@ -43,14 +43,14 @@ const TRENDS = [
   },
 ];
 
-// const SUGGESTIONS = [ //we had one suggestion of who to follow (single object in this array of objects)
-//   {
-//     name: 'TypeScript Project',
-//     handle: 'TypeScript',
-//     avatarUrl: 'http://localhost:3000/static/ts-logo.png',
-//     reason: 'Because you follow @MichaelLNorth',
-//   },
-// ];
+const SUGGESTIONS = [
+  {
+    name: 'TypeScript Project',
+    handle: 'TypeScript',
+    avatarUrl: 'http://localhost:3000/static/ts-logo.png',
+    reason: 'Because you follow @MichaelLNorth',
+  },
+];
 
 export const GET_CURRENT_USER = gql`
   query GetCurrentUser {

@@ -43,7 +43,7 @@ const TRENDS = [
   },
 ];
 
-// const SUGGESTIONS = [ //we had one suggestion of who to follow (single object in this array of objects)
+// const SUGGESTIONS = [
 //   {
 //     name: 'TypeScript Project',
 //     handle: 'TypeScript',

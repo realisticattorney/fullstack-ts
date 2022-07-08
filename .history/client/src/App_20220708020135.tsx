@@ -43,14 +43,14 @@ const TRENDS = [
   },
 ];
 
-// const SUGGESTIONS = [ //we had one suggestion of who to follow (single object in this array of objects)
-//   {
-//     name: 'TypeScript Project',
-//     handle: 'TypeScript',
-//     avatarUrl: 'http://localhost:3000/static/ts-logo.png',
-//     reason: 'Because you follow @MichaelLNorth',
-//   },
-// ];
+const SUGGESTIONS = [
+  {
+    name: 'TypeScript Project',
+    handle: 'TypeScript',
+    avatarUrl: 'http://localhost:3000/static/ts-logo.png',
+    reason: 'Because you follow @MichaelLNorth',
+  },
+];
 
 export const GET_CURRENT_USER = gql`
   query GetCurrentUser {
@@ -85,8 +85,7 @@ const App: React.FC = () => {
   return (
     <div>
       {/* <LeftSidebar currentUser={CURRENT_USER} />   //we dont have real current user data yet */}
-      <LeftSidebar currentUser={{ ...CURRENT_USER, ...currentUser }} />
-      {/* I've merged these two (dummy data and the actual currentUser data as I don't have it all yet (like favorite tweets etc)) */}
+      <LeftSidebar currentUser={{...CURRENT_USER, ...currentUser}} />
       <Header currentUser={CURRENT_USER} />
 
       <div id="container" className="wrapper nav-closed">
@@ -94,8 +93,7 @@ const App: React.FC = () => {
           currentUserId={CURRENT_USER.id}
           currentUserFavorites={favorites}
         />
-        {/* <RightBar trends={TRENDS} suggestions={SUGGESTIONS} />  //actually replace it, so bye bye dummy data */}
-        <RightBar trends={TRENDS} suggestions={suggestions} />
+        <RightBar trends={TRENDS} suggestions={SUGGESTIONS} />
       </div>
     </div>
   );
