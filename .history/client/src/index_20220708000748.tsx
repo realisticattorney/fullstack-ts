@@ -48,9 +48,9 @@ ReactDOM.render(
       // reset the state of your app so the error doesn't happen again
     }}
   >
-    <ApolloProvider client={client}>
-      <App />
-    </ApolloProvider>
+    <ApolloProvider client={client} > 
+    <App />
+    </ ApolloCProvider>
   </ErrorBoundary>,
   app
 );

@@ -4,15 +4,10 @@ import { ErrorBoundary, FallbackProps } from 'react-error-boundary';
 import App from './App';
 
 import {
-  ApolloClient, //the vanilla JS that makes the graphQL queries
-  ApolloProvider, //component that uses the React context API to make it possible to fire off queries throughout the app
-  InMemoryCache, //helps us to cache the response of the exact same query needed in multiple component so that I doesn't have to make multiple queries?
+  ApolloClient, //component that uses the React context API to make it possible to fire off queries throughout the app
+  ApolloProvider,
+  InMemoryCache, //idk
 } from '@apollo/client';
-
-const client = new ApolloClient({
-  uri: 'http://localhost:3000/graphql',
-  cache: new InMemoryCache(),
-});
 
 const app = document.getElementById('app');
 
@@ -48,11 +43,7 @@ ReactDOM.render(
       // reset the state of your app so the error doesn't happen again
     }}
   >
-    <ApolloProvider client={client}>
-      <App />
-    </ApolloProvider>
+    <App />
   </ErrorBoundary>,
   app
 );
-
-//Error Boundary in React is a catch (so we don't watch the console for the error, just the rendered DOM)
