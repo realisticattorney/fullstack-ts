@@ -13,7 +13,7 @@ const queryTwitterResolver: QueryResolvers<TwitterResolverContext> = {
       updatedAt: '',
     };
   },
-  //suggestions: (_, __, { db: _db }) => { //is gone.
+  //: _db
   suggestions: (_, __, { db }) => {
     return db.getAllSuggestions();
 

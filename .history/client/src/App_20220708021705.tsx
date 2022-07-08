@@ -108,50 +108,10 @@ export default App;
 
 //so the generated types includes useGetCurrentUserQuery which is a function that returns the result of a query Apollo.useQuery(GetUserQuery, GetUserQueryVariables). The former is the query, and the latter is the variables (cleverly, just a [x]: string each attribute in the query is of type string). In a REST API the GetUserQueryVariables would be included in the URL.
 
+
 //so this is how the query made from ApolloClient looks like in the network tab of our React app (PAYLOAD):
 // operationName: "GetCurrentUser"
 // query: "query GetCurrentUser {\n  currentUser {\n    id\n    name\n    handle\n    avatarUrl\n    createdAt\n    __typename\n  }\n  suggestions {\n    name\n    handle\n    avatarUrl\n    reason\n    __typename\n  }\n}\n"
 // variables: {}
 
-//Response (another tab):
-// {"data":{"currentUser":{"id":"123","name":"John Doe","handle":"johndoe","avatarUrl":"","createdAt":"","__typename":"User"},"suggestions":[{"name":"TypeScript Project","handle":"TypeScript","avatarUrl":"http://localhost:3000/static/ts-logo.png","reason":"Because you follow @MichaelLNorth","__typename":"Suggestion"},{"name":"jQuery","handle":"jquery","avatarUrl":"http://localhost:3000/static/jquery-logo.jpeg","reason":"Because you follow @FrontendMasters","__typename":"Suggestion"}]}}
-
-//Preview(same but parsed):
-// {data: {,…}}
-// data: {,…}
-// currentUser: {id: "123", name: "John Doe", handle: "johndoe", avatarUrl: "", createdAt: "", __typename: "User"}
-// avatarUrl: ""
-// createdAt: ""
-// handle: "johndoe"
-// id: "123"
-// name: "John Doe"
-// __typename: "User"
-// suggestions: [{name: "TypeScript Project", handle: "TypeScript",…},…]
-// 0: {name: "TypeScript Project", handle: "TypeScript",…}
-// avatarUrl: "http://localhost:3000/static/ts-logo.png"
-// handle: "TypeScript"
-// name: "TypeScript Project"
-// reason: "Because you follow @MichaelLNorth"
-// __typename: "Suggestion"
-// 1: {name: "jQuery", handle: "jquery", avatarUrl: "http://localhost:3000/static/jquery-logo.jpeg",…}
-// avatarUrl: "http://localhost:3000/static/jquery-logo.jpeg"
-// handle: "jquery"
-// name: "jQuery"
-// reason: "Because you follow @FrontendMasters"
-// __typename: "Suggestion
-
-
-//We don't need to worry much about this as it's working between apollo client and apollo server. 
-//For now all I see we need is:
-//To create an apollo server, server that data. connect it to the express server.
-//to create the schema, test it, and generate the types in typescript for that schema.
-//to create the resolvers, and make sure they work.
-//to create the client layout 
-//to create the apollo client and connect it to the apollo server endpoint. (the endpoint is the url of the server/graphql)
-//to generate the operation types 
-//to use the useCustomHooks prebaked to fetch the data from the server.
-//and then I guess we just need to populate the data of the DB in the server.
-
-
-//instead of dummy data say fixture data.
-
+//Response (another tab)
