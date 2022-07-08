@@ -1,6 +1,6 @@
 import Query from './resolvers/Query';
 import { Resolvers } from './resolvers-types.generated';
-import Db, { DbTweet, DbUser } from './db';
+import Db, { DbTweet } from './db';
 export interface TwitterResolverContext {
   db: Db;
   dbTweetCache: Record<string, DbTweet>;

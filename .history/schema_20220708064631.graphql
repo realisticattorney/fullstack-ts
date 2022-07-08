@@ -12,7 +12,7 @@ type User {
   avatarUrl: String!
   createdAt: String!
   updatedAt: String!
-  stats: UserStats #nullable field. // as-needed basis 
+  stats: UserStats #nullable 
 }
 type Suggestion {
   name: String!
