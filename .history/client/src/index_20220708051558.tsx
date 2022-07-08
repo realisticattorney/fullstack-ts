@@ -55,7 +55,6 @@ ReactDOM.render(
   app
 );
 
-//opeation is a word for queries that are defined in your code base that you're consuming (???)
 
 
 

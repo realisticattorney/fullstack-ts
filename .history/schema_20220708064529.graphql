@@ -1,8 +1,8 @@
 type Query {
   currentUser: User!
   suggestions: [Suggestion!]!
-  tweets: [Tweet!]!
-  # in our case everyone sees eveyones tweets
+  tweets: [Tweet!]! 
+  # 
 }
 type User {
   id: String!
@@ -12,7 +12,6 @@ type User {
   avatarUrl: String!
   createdAt: String!
   updatedAt: String!
-  stats: UserStats
 }
 type Suggestion {
   name: String!

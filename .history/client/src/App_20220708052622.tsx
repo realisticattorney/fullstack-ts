@@ -68,7 +68,7 @@ export const GET_CURRENT_USER = gql`
       reason
     }
   }
-`; // I think codegen sees this and creates the useHooks to make this exact query?
+`; // I 
 
 const App: React.FC = () => {
   const { favorites: rawFavorites } = CURRENT_USER;
@@ -81,7 +81,7 @@ const App: React.FC = () => {
   if (error) return <p>Error: {error}</p>;
   if (!data) return <p>No data.</p>;
   const { currentUser, suggestions = [] } = data; //we want to pickup data so as to not use the dummy data
-  console.log(data);
+
   return (
     <div>
       {/* <LeftSidebar currentUser={CURRENT_USER} />   //we dont have real current user data yet */}
@@ -140,15 +140,18 @@ export default App;
 // reason: "Because you follow @FrontendMasters"
 // __typename: "Suggestion
 
-//We don't need to worry much about this as it's working between apollo client and apollo server.
+
+//We don't need to worry much about this as it's working between apollo client and apollo server. 
 //For now all I see we need is:
 //To create an apollo server, server that data. connect it to the express server.
 //to create the schema, test it, and generate the types in typescript for that schema.
 //to create the resolvers, and make sure they work.
-//to create the client layout
+//to create the client layout 
 //to create the apollo client and connect it to the apollo server endpoint. (the endpoint is the url of the server/graphql)
-//to generate the operation types
+//to generate the operation types 
 //to use the useCustomHooks prebaked to fetch the data from the server.
 //and then I guess we just need to populate the data of the DB in the server.
 
+
 //instead of dummy data say fixture data.
+
