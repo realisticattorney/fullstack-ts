@@ -5,10 +5,9 @@ export const tweetTransform = (t: DbTweet): Omit<Tweet, 'author'> => { //it take
     //and it returns a modified version of Tweet, which is a type generated from the graphQL schema. i.e., this converts from the database representation of the entity, to the graphql representation of the entity, and while doing that mapping it will ommit the author property. 
   return {
     id: t.id,
-    body: t.message, //body from message mapping
+    body: t.message, //
     createdAt: t.createdAt,
     updatedAt: t.updatedAt,
   };
 };
 
-//we're gonna export this into resolvers and create a tweet's resolver function

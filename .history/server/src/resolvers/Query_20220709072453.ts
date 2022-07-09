@@ -47,7 +47,7 @@ const queryTwitterResolver: QueryResolvers<TwitterResolverContext> = {
   tweets: (
     _, //this is the parent of the resolver. It's the resolvers parent (previous to this one). We won't use this in this resolver.
     __, //this is the args of the resolver. If we accepted params here, for instance a tweet id, it'd be here.
-    { db, dbTweetToFavoriteCountMap, dbUserCache, dbTweetCache } //context. This is set in the new ApolloServer constructor and it will be present in every resolver. THESE ARE RETURNED BY THE CONTEXT OBJECT. db.getAllUsers() will simply return an array. not something that references to the database.
+    { db, dbTweetToFavoriteCountMap, dbUserCache, dbTweetCache } //context. This is set in the new ApolloServer constructor and it will be present in every resolver.
   ) => {
     db.getAllUsers().forEach((user) => {  //we'll getting all users and iterating them and putting them into a cache (memory cache)
       //in a realistic scenario, you'd retrieve your tweets, get the list of user ids asociated with the tweet.author of those tweets and then primer your cache with that subset of users instead of all users as we do here. But it's lot of round trips. 
@@ -65,14 +65,7 @@ const queryTwitterResolver: QueryResolvers<TwitterResolverContext> = {
       dbTweetCache[t.id] = t;
       return tweetTransform(t);
     });
-  },//remember that this db object is a new object for every request. We're modifying it in this resolver and returning 
+  },
 };
 
 export default queryTwitterResolver;
-
-
-//i don't get why I do the db.getallusers, the get all favorites, I guess I will need later? 
-//I get why I dont get the author though. because I'm returning the tweetTransform function returned object.
-
-//JSON is a format that encodes objects in a string. Serialization means to convert an object into that string, and deserialization is its inverse operation (convert string -> object).
-//here we say that from db to graphql representation is to deserialize? 

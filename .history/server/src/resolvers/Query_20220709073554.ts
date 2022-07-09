@@ -72,7 +72,4 @@ export default queryTwitterResolver;
 
 
 //i don't get why I do the db.getallusers, the get all favorites, I guess I will need later? 
-//I get why I dont get the author though. because I'm returning the tweetTransform function returned object.
-
-//JSON is a format that encodes objects in a string. Serialization means to convert an object into that string, and deserialization is its inverse operation (convert string -> object).
-//here we say that from db to graphql representation is to deserialize? 
+//I 

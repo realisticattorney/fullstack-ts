@@ -11,4 +11,4 @@ export const tweetTransform = (t: DbTweet): Omit<Tweet, 'author'> => { //it take
   };
 };
 
-//we're gonna export this into resolvers and create a tweet's resolver function
+//we're gonna export this into resolvers and create a 

@@ -11,7 +11,7 @@ export interface TwitterResolverContext {
   //kind of like when you trade time complexity for some space complexity to avoid quadratic time, getting linear time and complexity instead.
   dbTweetCache: Record<string, DbTweet>; //Record is a utility that can be used to map the properties of a type to another type.
   dbUserCache: Record<string, DbUser>;
-  dbTweetToFavoriteCountMap: Record<string, number>; //this one, when iterating once over the tweets array, will create a hashmap with the favorite count for each tweet.
+  dbTweetToFavoriteCountMap: Record<string, number>; //this one
 }
 
 const resolvers: Resolvers<TwitterResolverContext> = {
