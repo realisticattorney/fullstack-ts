@@ -35,7 +35,6 @@ type Tweet {
   author: User
   stats: TweetStats
 }
-
 type TweetStats {
   favoriteCount: Int!
   retweetCount: Int!

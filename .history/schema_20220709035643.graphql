@@ -12,7 +12,7 @@ type User {
   avatarUrl: String!
   createdAt: String!
   updatedAt: String!
-  stats: UserStats #nullable field. // as-needed basis
+  stats: UserStats #nullable field. // as-needed basis 
 }
 type Suggestion {
   name: String!
@@ -21,8 +21,7 @@ type Suggestion {
   reason: String!
 }
 
-type UserStats { ##followers, tweets, following that we will pretend to get optionally
-  #that's why it's not part of the User type
+type UserStats { ##followers, 
   tweetCount: Int!
   followingCount: Int!
   followerCount: Int!
@@ -35,7 +34,6 @@ type Tweet {
   author: User
   stats: TweetStats
 }
-
 type TweetStats {
   favoriteCount: Int!
   retweetCount: Int!

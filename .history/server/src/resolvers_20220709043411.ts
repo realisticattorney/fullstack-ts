@@ -7,8 +7,7 @@ export interface TwitterResolverContext {
   //let's talk about the n + 1 query problem.
   //say we need a list of 100 tweets and in order to get it we need first to fetch the authors of each of those 100 tweets. 
   //and let's say all the tweets we need are from the same author. In a naive way we'd get the id of the author (first fetch)
-  //then we'd go to our database to get each of the tweets (+ 100 retrieves)
-  //kind of like when you trade time complexity for some space complexity to avoid quadratic time, getting linear time and complexity instead.
+  //then we'd go to our database to get 
   dbTweetCache: Record<string, DbTweet>; //Record is a utility that can be used to map the properties of a type to another type.
   dbUserCache: Record<string, DbUser>;
   dbTweetToFavoriteCountMap: Record<string, number>;

@@ -38,7 +38,7 @@ export async function createApolloServer( ///these are the arguments for the Apo
     // (): TwitterResolverContext => ({ db })//this is what that type is checking for
     context: (): TwitterResolverContext => ({
       db,
-      dbTweetCache: {}, //these are empty objects. they will be filled in later
+      dbTweetCache: {},
       dbTweetToFavoriteCountMap: {},
       dbUserCache: {},
     }), //context (express-concept) object always available in any of our resolvers (one of the arguments you automatically get)

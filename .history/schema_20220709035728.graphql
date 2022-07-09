@@ -22,7 +22,7 @@ type Suggestion {
 }
 
 type UserStats { ##followers, tweets, following that we will pretend to get optionally
-  #that's why it's not part of the User type
+#that's why it's not part of the User type
   tweetCount: Int!
   followingCount: Int!
   followerCount: Int!
@@ -35,7 +35,6 @@ type Tweet {
   author: User
   stats: TweetStats
 }
-
 type TweetStats {
   favoriteCount: Int!
   retweetCount: Int!
