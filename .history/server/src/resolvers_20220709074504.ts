@@ -18,8 +18,6 @@ export interface TwitterResolverContext {
 
 const resolvers: Resolvers<TwitterResolverContext> = {
   Query,
-  Tweet: tweetTwitterResolver,
-  User: userTwitterResolver,
 };
 
 export default resolvers;

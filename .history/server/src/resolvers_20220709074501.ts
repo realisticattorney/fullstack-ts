@@ -1,13 +1,13 @@
 import Query from './resolvers/Query';
 import { Resolvers } from './resolvers-types.generated';
 import Db, { DbTweet, DbUser } from './db';
-import tweetTwitterResolver from './resolvers/Tweet';
-import userTwitterResolver from './resolvers/User';
++import tweetTwitterResolver from './resolvers/Tweet';
++import userTwitterResolver from './resolvers/User';
 export interface TwitterResolverContext {
   db: Db;
   //Why do we use these caches in our context?
   //let's talk about the n + 1 query problem.
-  //say we need a list of 100 tweets and in order to get it we need first to fetch the authors of each of those 100 tweets.
+  //say we need a list of 100 tweets and in order to get it we need first to fetch the authors of each of those 100 tweets. 
   //and let's say all the tweets we need are from the same author. In a naive way we'd get the id of the author (first fetch)
   //then we'd go to our database to get each of the tweets (+ 100 retrieves)
   //kind of like when you trade time complexity for some space complexity to avoid quadratic time, getting linear time and complexity instead.
@@ -18,8 +18,6 @@ export interface TwitterResolverContext {
 
 const resolvers: Resolvers<TwitterResolverContext> = {
   Query,
-  Tweet: tweetTwitterResolver,
-  User: userTwitterResolver,
 };
 
 export default resolvers;
