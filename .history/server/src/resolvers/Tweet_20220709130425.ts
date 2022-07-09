@@ -1,10 +1,8 @@
 import { TwitterResolverContext } from '../resolvers';
 import { TweetResolvers } from '../resolvers-types.generated';
 const tweetTwitterResolver: TweetResolvers<TwitterResolverContext> = {
-    //NO DB.CALLS HERE AS THIS IS A PER TWEET BASIS WITHIN FOR EACH LOOPS.
-    
   author(tweet, _, { dbUserCache, dbTweetCache }) {
-    const dbTweet = dbTweetCache[tweet.id]; 
+    const dbTweet = dbTweetCache[tweet.id];
     if (!dbTweet)
       throw new Error(
         'Attempted to find Tweet.author, but the tweet was not found in dbTweetCache'
@@ -17,7 +15,7 @@ const tweetTwitterResolver: TweetResolvers<TwitterResolverContext> = {
     return dbUser;
   },
   stats(tweet, _, { dbTweetToFavoriteCountMap }) {
-    console.log('dbTweetToFavoriteCountMap', dbTweetToFavoriteCountMap);
+    console.log(dbTweetToFavoriteCountMap)
     return {
       commentCount: 99,
       retweetCount: 1,

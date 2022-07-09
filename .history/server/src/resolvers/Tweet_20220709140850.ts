@@ -1,7 +1,7 @@
 import { TwitterResolverContext } from '../resolvers';
 import { TweetResolvers } from '../resolvers-types.generated';
 const tweetTwitterResolver: TweetResolvers<TwitterResolverContext> = {
-    //NO DB.CALLS HERE AS THIS IS A PER TWEET BASIS WITHIN FOR EACH LOOPS.
+    //NO DB.
     
   author(tweet, _, { dbUserCache, dbTweetCache }) {
     const dbTweet = dbTweetCache[tweet.id]; 

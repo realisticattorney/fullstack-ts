@@ -26,7 +26,4 @@ export default userTwitterResolver;
 //Biggest mistake so far has been not to record and study my performances on interviews.
 
 //Don't like the camera on the side, like ignoring the interviewer.
-//Think of the interviewer as a friend. Be more relatable than educated. Warm and relatable wins over educated and distant.
-
-//CSS and how to structure it in a large project.
-//
+//Think of the interviewer as a friend. Be more relatable than educated. 

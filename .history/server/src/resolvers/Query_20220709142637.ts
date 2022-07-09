@@ -97,8 +97,4 @@ export default queryTwitterResolver;
 //These resolvers execute in the order shown above, and they each pass their return value to the next resolver in the chain via the parent argument.
 //If there's a resolver for a field in the object, it will be executed. If not, it will return the value of the parent.field 
 //if there's no resolver and no parent, it will return undefined.
-//one of the dangers of this nested resolvers is that they equal to nested loops. 
-
- 
-
-
+//If you don't define a resolver for a particular field, Apollo Server automatically defines a default resolver for it.

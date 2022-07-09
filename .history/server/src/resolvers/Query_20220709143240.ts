@@ -99,6 +99,6 @@ export default queryTwitterResolver;
 //if there's no resolver and no parent, it will return undefined.
 //one of the dangers of this nested resolvers is that they equal to nested loops. 
 
- 
+
 
 

@@ -46,4 +46,4 @@ export default resolvers;
 
 //Query.tweets: [Tweet!]!
 //Tweet entity has a stats prop
-//so stats is Tweet.stats: TweetStats (entity)
+//so stats is Tweet.stats

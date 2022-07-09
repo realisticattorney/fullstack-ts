@@ -28,5 +28,3 @@ export default userTwitterResolver;
 //Don't like the camera on the side, like ignoring the interviewer.
 //Think of the interviewer as a friend. Be more relatable than educated. Warm and relatable wins over educated and distant.
 
-//CSS and how to structure it in a large project.
-//

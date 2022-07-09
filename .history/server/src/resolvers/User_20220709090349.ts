@@ -19,14 +19,5 @@ export default userTwitterResolver;
 //Performance based on real outcomes
 //Javascript: 7.5/10 (challenges, theoretical questions, etc.)
 //React: {
-    //projects: 3/10  (I've completed the projects. I haven't passed any of them)
-    //live coding challenges: 7/10
-    //theorical questions: 5/10
+    
 //}
-//Biggest mistake so far has been not to record and study my performances on interviews.
-
-//Don't like the camera on the side, like ignoring the interviewer.
-//Think of the interviewer as a friend. Be more relatable than educated. Warm and relatable wins over educated and distant.
-
-//CSS and how to structure it in a large project.
-//

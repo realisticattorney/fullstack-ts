@@ -82,7 +82,7 @@ export default queryTwitterResolver;
 //SO IM TRANSFORMING THESE TO GRAPHQL BECAUSE THAT'S WHAT THE APOLLO CLIENT IS EXPECTING on the React app.
 
 
-//query afdfdasfetTweets { //instead of GetTweets (you can give it the name you want? I guess you can, and that's just a name that might me useful in React, but again it can be whatever you want, it's just to call the same function/query)
+//query afdfdasfetTweets {
   // tweets {
     // body
     // stats {
@@ -90,15 +90,3 @@ export default queryTwitterResolver;
     // }
   // }
 // }
-
-
-//Does the server looks at Tweet object looking for a resolver for a particular field when its lacking in the object returned by the top level resolver?
-//YES
-//These resolvers execute in the order shown above, and they each pass their return value to the next resolver in the chain via the parent argument.
-//If there's a resolver for a field in the object, it will be executed. If not, it will return the value of the parent.field 
-//if there's no resolver and no parent, it will return undefined.
-//one of the dangers of this nested resolvers is that they equal to nested loops. 
-
- 
-
-
