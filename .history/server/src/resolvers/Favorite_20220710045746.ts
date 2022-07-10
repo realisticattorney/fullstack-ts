@@ -1,4 +1,4 @@
-import { DbFavorite } from '../db';
+import { DbFavorite } from './db';
 import { Favorite } from '../resolvers-types.generated';
 export const favoriteTransform = (
   t: DbFavorite

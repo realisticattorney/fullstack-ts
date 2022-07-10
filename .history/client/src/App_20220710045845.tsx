@@ -65,12 +65,11 @@ export const GET_CURRENT_USER = gql`
         followingCount
         tweetCount
       }
-    }
-    favorites {
-      tweet {
-        id
-      }
-    }
+    }+     favorites {
++       tweet {
++         id
++       }
++     }
     suggestions {
       name
       handle
