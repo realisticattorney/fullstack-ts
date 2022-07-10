@@ -60,10 +60,8 @@ export const GET_CURRENT_USER = gql`
       handle
       avatarUrl
       createdAt
-      stats {
-        followerCount
-        followingCount
-        tweetCount
+      stats{
+        
       }
     }
     suggestions {
@@ -87,7 +85,6 @@ const App: React.FC = () => {
   if (!data) return <p>No data.</p>;
   const { currentUser, suggestions = [] } = data; //we want to pickup data so as to not use the dummy data
   console.log(data);
-
   return (
     <div>
       {/* <LeftSidebar currentUser={CURRENT_USER} />   //we dont have real current user data yet */}
