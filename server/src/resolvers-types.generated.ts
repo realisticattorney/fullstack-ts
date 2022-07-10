@@ -14,6 +14,15 @@ export type Scalars = {
   Float: number;
 };
 
+export type Favorite = {
+  __typename?: 'Favorite';
+  createdAt: Scalars['String'];
+  id: Scalars['String'];
+  tweet: Tweet;
+  updatedAt: Scalars['String'];
+  user: User;
+};
+
 export type Mutation = {
   __typename?: 'Mutation';
   createTweet: Tweet;
@@ -146,6 +155,7 @@ export type DirectiveResolverFn<TResult = {}, TParent = {}, TContext = {}, TArgs
 /** Mapping between all available schema types and the resolvers types */
 export type ResolversTypes = {
   Boolean: ResolverTypeWrapper<Scalars['Boolean']>;
+  Favorite: ResolverTypeWrapper<Favorite>;
   Int: ResolverTypeWrapper<Scalars['Int']>;
   Mutation: ResolverTypeWrapper<{}>;
   Query: ResolverTypeWrapper<{}>;
@@ -160,6 +170,7 @@ export type ResolversTypes = {
 /** Mapping between all available schema types and the resolvers parents */
 export type ResolversParentTypes = {
   Boolean: Scalars['Boolean'];
+  Favorite: Favorite;
   Int: Scalars['Int'];
   Mutation: {};
   Query: {};
@@ -169,6 +180,15 @@ export type ResolversParentTypes = {
   TweetStats: TweetStats;
   User: User;
   UserStats: UserStats;
+};
+
+export type FavoriteResolvers<ContextType = any, ParentType extends ResolversParentTypes['Favorite'] = ResolversParentTypes['Favorite']> = {
+  createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  tweet?: Resolver<ResolversTypes['Tweet'], ParentType, ContextType>;
+  updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  user?: Resolver<ResolversTypes['User'], ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
 export type MutationResolvers<ContextType = any, ParentType extends ResolversParentTypes['Mutation'] = ResolversParentTypes['Mutation']> = {
@@ -226,6 +246,7 @@ export type UserStatsResolvers<ContextType = any, ParentType extends ResolversPa
 };
 
 export type Resolvers<ContextType = any> = {
+  Favorite?: FavoriteResolvers<ContextType>;
   Mutation?: MutationResolvers<ContextType>;
   Query?: QueryResolvers<ContextType>;
   Suggestion?: SuggestionResolvers<ContextType>;

@@ -34,7 +34,7 @@ const ComposePanel: React.FC<ComposePanelProps> = ({ currentUser }) => {
     const body = textarea.value;
     createNewTweet({
       variables: { userId: currentUser.id, body: body },
-      refetchQueries: [GET_ALL_TWEETS, GET_CURRENT_USER],
+      refetchQueries: [GET_ALL_TWEETS, GET_CURRENT_USER }],
     })
       .then(() => {
         textarea.value = '';

@@ -46,12 +46,6 @@ type TweetStats {
   commentCount: Int!
 }
 
-type Favorite {
-  id: String!
-  tweet: Tweet!
-  user: User!
-  createdAt: String!
-  updatedAt: String!
-}
 
 ##like Query, mutation is a top level collection of resolvers.
+
