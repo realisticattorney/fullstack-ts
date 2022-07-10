@@ -15,6 +15,17 @@ export type Scalars = {
   Float: number;
 };
 
+export type Mutation = {
+  __typename?: 'Mutation';
+  createTweet: Tweet;
+};
+
+
+export type MutationCreateTweetArgs = {
+  body: Scalars['String'];
+  userId: Scalars['String'];
+};
+
 export type Query = {
   __typename?: 'Query';
   currentUser: User;
