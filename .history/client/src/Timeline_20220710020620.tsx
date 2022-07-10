@@ -78,9 +78,8 @@ const Timeline: React.FC<TimelineProps> = ({
   if (error) return <p>Error: {error}</p>;
   if (!data) return <p>No data.</p>;
   const { tweets } = data;
-  if (!tweets) return <p>No tweets.</p>;
   console.log('tweets', tweets);
-
+  console.log('tweets', [] isFal);
   return (
     <div id="timeline">
       <ComposePanel currentUser={{ id: currentUserId }} />

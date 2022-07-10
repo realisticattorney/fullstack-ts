@@ -80,7 +80,7 @@ const Timeline: React.FC<TimelineProps> = ({
   const { tweets } = data;
   if (!tweets) return <p>No tweets.</p>;
   console.log('tweets', tweets);
-
+  
   return (
     <div id="timeline">
       <ComposePanel currentUser={{ id: currentUserId }} />

@@ -77,10 +77,8 @@ const Timeline: React.FC<TimelineProps> = ({
   if (loading) return <p>Loading...</p>; //for now we return these cursory things just in case we get loading no data or error.
   if (error) return <p>Error: {error}</p>;
   if (!data) return <p>No data.</p>;
-  const { tweets } = data;
-  if (!tweets) return <p>No tweets.</p>;
+  const { tweets   } = data;
   console.log('tweets', tweets);
-
   return (
     <div id="timeline">
       <ComposePanel currentUser={{ id: currentUserId }} />
