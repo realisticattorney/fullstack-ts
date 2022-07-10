@@ -12,12 +12,12 @@ type User {
   id: String!
   name: String!
   handle: String!
+  
   coverUrl: String!
   avatarUrl: String!
   createdAt: String!
   updatedAt: String!
   stats: UserStats #nullable field. // as-needed basis
-  favorites: [Favorite!]
 }
 type Suggestion {
   name: String!

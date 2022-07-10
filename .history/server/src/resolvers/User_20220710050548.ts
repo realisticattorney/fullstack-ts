@@ -1,4 +1,4 @@
-import { favoriteTransform, tweetTransform } from '../transforms';
+import { favoriteTransform } from '../transforms';
 import { TwitterResolverContext } from '../resolvers';
 import { UserResolvers } from '../resolvers-types.generated';
 const userTwitterResolver: UserResolvers<TwitterResolverContext> = {
@@ -15,7 +15,6 @@ const userTwitterResolver: UserResolvers<TwitterResolverContext> = {
     const faves = db.getUserFavorites(user.id);
     return faves.map((f) => {
       return {
-        // eslint-disable-next-line node/no-unsupported-features/es-syntax
         ...favoriteTransform(f),
         user,
         tweet: tweetTransform(db.getTweetById(f.tweetId)),

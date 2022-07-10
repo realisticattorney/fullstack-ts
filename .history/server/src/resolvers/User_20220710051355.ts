@@ -14,8 +14,7 @@ const userTwitterResolver: UserResolvers<TwitterResolverContext> = {
   favorites(user, _, { db }) {
     const faves = db.getUserFavorites(user.id);
     return faves.map((f) => {
-      return {
-        // eslint-disable-next-line node/no-unsupported-features/es-syntax
+      return Object.assign({}, f, {{
         ...favoriteTransform(f),
         user,
         tweet: tweetTransform(db.getTweetById(f.tweetId)),

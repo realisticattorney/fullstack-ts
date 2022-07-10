@@ -1,4 +1,3 @@
-import { favoriteTransform, tweetTransform } from '../transforms';
 import { TwitterResolverContext } from '../resolvers';
 import { UserResolvers } from '../resolvers-types.generated';
 const userTwitterResolver: UserResolvers<TwitterResolverContext> = {
@@ -15,7 +14,6 @@ const userTwitterResolver: UserResolvers<TwitterResolverContext> = {
     const faves = db.getUserFavorites(user.id);
     return faves.map((f) => {
       return {
-        // eslint-disable-next-line node/no-unsupported-features/es-syntax
         ...favoriteTransform(f),
         user,
         tweet: tweetTransform(db.getTweetById(f.tweetId)),
@@ -39,4 +37,6 @@ export default userTwitterResolver;
 //Think of the interviewer as a friend. Be more relatable than educated. Warm and relatable wins over educated and distant.
 
 //CSS and how to structure it in a large project.
-//Major difference between promises and async/await.
+//Major difference between promises and async/await. 
+
+

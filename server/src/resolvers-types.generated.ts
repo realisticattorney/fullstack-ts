@@ -71,6 +71,7 @@ export type User = {
   avatarUrl: Scalars['String'];
   coverUrl: Scalars['String'];
   createdAt: Scalars['String'];
+  favorites?: Maybe<Array<Favorite>>;
   handle: Scalars['String'];
   id: Scalars['String'];
   name: Scalars['String'];
@@ -230,6 +231,7 @@ export type UserResolvers<ContextType = any, ParentType extends ResolversParentT
   avatarUrl?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   coverUrl?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  favorites?: Resolver<Maybe<Array<ResolversTypes['Favorite']>>, ParentType, ContextType>;
   handle?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   name?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
