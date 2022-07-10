@@ -1,7 +1,6 @@
 import gql from 'graphql-tag';
 import * as React from 'react';
 import ComposePanel from './ComposePanel';
-import { useGetAllTweetsQuery } from './generated/graphql';
 import Tweet from './Tweet';
 
 export interface TimelineProps {
@@ -44,7 +43,7 @@ const TWEETS = [
   },
 ];
 
-export const GET_ALL_TWEETS = gql`
+export const GET_CURRENT_USER = gql`
   query GetAllTweets {
     tweets {
       body
@@ -72,7 +71,9 @@ const Timeline: React.FC<TimelineProps> = ({
   currentUserFavorites,
   currentUserId,
 }) => {
-  const { data, loading, error } = useGetAllTweetsQuery();
+
+  const { data, loading, error } = useGetAllTweetsQuery()
+
 
   return (
     <div id="timeline">

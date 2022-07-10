@@ -71,6 +71,11 @@ export type GetCurrentUserQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type GetCurrentUserQuery = { __typename?: 'Query', currentUser: { __typename?: 'User', id: string, name: string, handle: string, avatarUrl: string, createdAt: string, stats?: { __typename?: 'UserStats', followerCount: number, followingCount: number, tweetCount: number } | null }, suggestions: Array<{ __typename?: 'Suggestion', name: string, handle: string, avatarUrl: string, reason: string }> };
 
+export type GetAllTweetsQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetAllTweetsQuery = { __typename?: 'Query', tweets: Array<{ __typename?: 'Tweet', body: string, id: string, createdAt: string, updatedAt: string, author?: { __typename?: 'User', name: string, handle: string, coverUrl: string, createdAt: string, updatedAt: string, id: string } | null, stats?: { __typename?: 'TweetStats', favoriteCount: number, retweetCount: number, commentCount: number } | null }> };
+
 
 export const GetCurrentUserDocument = gql`
     query GetCurrentUser {
@@ -121,3 +126,53 @@ export function useGetCurrentUserLazyQuery(baseOptions?: Apollo.LazyQueryHookOpt
 export type GetCurrentUserQueryHookResult = ReturnType<typeof useGetCurrentUserQuery>;
 export type GetCurrentUserLazyQueryHookResult = ReturnType<typeof useGetCurrentUserLazyQuery>;
 export type GetCurrentUserQueryResult = Apollo.QueryResult<GetCurrentUserQuery, GetCurrentUserQueryVariables>;
+export const GetAllTweetsDocument = gql`
+    query GetAllTweets {
+  tweets {
+    body
+    id
+    createdAt
+    updatedAt
+    author {
+      name
+      handle
+      coverUrl
+      createdAt
+      updatedAt
+      id
+    }
+    stats {
+      favoriteCount
+      retweetCount
+      commentCount
+    }
+  }
+}
+    `;
+
+/**
+ * __useGetAllTweetsQuery__
+ *
+ * To run a query within a React component, call `useGetAllTweetsQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetAllTweetsQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetAllTweetsQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useGetAllTweetsQuery(baseOptions?: Apollo.QueryHookOptions<GetAllTweetsQuery, GetAllTweetsQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<GetAllTweetsQuery, GetAllTweetsQueryVariables>(GetAllTweetsDocument, options);
+      }
+export function useGetAllTweetsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetAllTweetsQuery, GetAllTweetsQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<GetAllTweetsQuery, GetAllTweetsQueryVariables>(GetAllTweetsDocument, options);
+        }
+export type GetAllTweetsQueryHookResult = ReturnType<typeof useGetAllTweetsQuery>;
+export type GetAllTweetsLazyQueryHookResult = ReturnType<typeof useGetAllTweetsLazyQuery>;
+export type GetAllTweetsQueryResult = Apollo.QueryResult<GetAllTweetsQuery, GetAllTweetsQueryVariables>;

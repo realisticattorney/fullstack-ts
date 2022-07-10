@@ -44,7 +44,7 @@ const TWEETS = [
   },
 ];
 
-export const GET_ALL_TWEETS = gql`
+export const GET_CURRENT_USER = gql`
   query GetAllTweets {
     tweets {
       body
