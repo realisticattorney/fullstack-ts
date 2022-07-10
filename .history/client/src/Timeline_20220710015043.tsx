@@ -55,7 +55,6 @@ export const GET_ALL_TWEETS = gql`
         name
         handle
         coverUrl
-        avatarUrl
         createdAt
         updatedAt
         id

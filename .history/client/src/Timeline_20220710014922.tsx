@@ -55,7 +55,6 @@ export const GET_ALL_TWEETS = gql`
         name
         handle
         coverUrl
-        avatarUrl
         createdAt
         updatedAt
         id
@@ -77,12 +76,12 @@ const Timeline: React.FC<TimelineProps> = ({
   if (loading) return <p>Loading...</p>; //for now we return these cursory things just in case we get loading no data or error.
   if (error) return <p>Error: {error}</p>;
   if (!data) return <p>No data.</p>;
-  const { tweets = [] } = data;
-  console.log('tweets', tweets);
+  const { tweets, suggestions = [] } = data;
+
   return (
     <div id="timeline">
       <ComposePanel currentUser={{ id: currentUserId }} />
-      {tweets.map((t) => {
+      {TWEETS.map((t) => {
         const author = t.author;
         if (!author) throw new Error(`Tweet ${t.id} has no author!`);
         const isFavorited = currentUserFavorites.includes(t.id);

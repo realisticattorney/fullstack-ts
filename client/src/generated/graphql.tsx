@@ -74,7 +74,7 @@ export type GetCurrentUserQuery = { __typename?: 'Query', currentUser: { __typen
 export type GetAllTweetsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetAllTweetsQuery = { __typename?: 'Query', tweets: Array<{ __typename?: 'Tweet', body: string, id: string, createdAt: string, updatedAt: string, author?: { __typename?: 'User', name: string, handle: string, coverUrl: string, createdAt: string, updatedAt: string, id: string } | null, stats?: { __typename?: 'TweetStats', favoriteCount: number, retweetCount: number, commentCount: number } | null }> };
+export type GetAllTweetsQuery = { __typename?: 'Query', tweets: Array<{ __typename?: 'Tweet', body: string, id: string, createdAt: string, updatedAt: string, author?: { __typename?: 'User', name: string, handle: string, coverUrl: string, avatarUrl: string, createdAt: string, updatedAt: string, id: string } | null, stats?: { __typename?: 'TweetStats', favoriteCount: number, retweetCount: number, commentCount: number } | null }> };
 
 
 export const GetCurrentUserDocument = gql`
@@ -137,6 +137,7 @@ export const GetAllTweetsDocument = gql`
       name
       handle
       coverUrl
+      avatarUrl
       createdAt
       updatedAt
       id

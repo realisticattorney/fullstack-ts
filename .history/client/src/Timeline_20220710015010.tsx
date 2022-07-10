@@ -55,7 +55,6 @@ export const GET_ALL_TWEETS = gql`
         name
         handle
         coverUrl
-        avatarUrl
         createdAt
         updatedAt
         id
@@ -82,7 +81,7 @@ const Timeline: React.FC<TimelineProps> = ({
   return (
     <div id="timeline">
       <ComposePanel currentUser={{ id: currentUserId }} />
-      {tweets.map((t) => {
+      {TWEETS.map((t) => {
         const author = t.author;
         if (!author) throw new Error(`Tweet ${t.id} has no author!`);
         const isFavorited = currentUserFavorites.includes(t.id);
