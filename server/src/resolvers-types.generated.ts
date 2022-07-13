@@ -54,6 +54,7 @@ export type Tweet = {
   author?: Maybe<User>;
   body: Scalars['String'];
   createdAt: Scalars['String'];
+  favoritedBy?: Maybe<Array<User>>;
   id: Scalars['String'];
   stats?: Maybe<TweetStats>;
   updatedAt: Scalars['String'];
@@ -214,6 +215,7 @@ export type TweetResolvers<ContextType = any, ParentType extends ResolversParent
   author?: Resolver<Maybe<ResolversTypes['User']>, ParentType, ContextType>;
   body?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  favoritedBy?: Resolver<Maybe<Array<ResolversTypes['User']>>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   stats?: Resolver<Maybe<ResolversTypes['TweetStats']>, ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;

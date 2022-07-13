@@ -15,6 +15,15 @@ export type Scalars = {
   Float: number;
 };
 
+export type Favorite = {
+  __typename?: 'Favorite';
+  createdAt: Scalars['String'];
+  id: Scalars['String'];
+  tweet: Tweet;
+  updatedAt: Scalars['String'];
+  user: User;
+};
+
 export type Mutation = {
   __typename?: 'Mutation';
   createTweet: Tweet;
@@ -46,6 +55,7 @@ export type Tweet = {
   author?: Maybe<User>;
   body: Scalars['String'];
   createdAt: Scalars['String'];
+  favoritedBy?: Maybe<Array<User>>;
   id: Scalars['String'];
   stats?: Maybe<TweetStats>;
   updatedAt: Scalars['String'];
@@ -63,6 +73,7 @@ export type User = {
   avatarUrl: Scalars['String'];
   coverUrl: Scalars['String'];
   createdAt: Scalars['String'];
+  favorites?: Maybe<Array<Favorite>>;
   handle: Scalars['String'];
   id: Scalars['String'];
   name: Scalars['String'];
@@ -80,7 +91,7 @@ export type UserStats = {
 export type GetCurrentUserQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetCurrentUserQuery = { __typename?: 'Query', currentUser: { __typename?: 'User', id: string, name: string, handle: string, avatarUrl: string, createdAt: string, stats?: { __typename?: 'UserStats', followerCount: number, followingCount: number, tweetCount: number } | null }, suggestions: Array<{ __typename?: 'Suggestion', name: string, handle: string, avatarUrl: string, reason: string }> };
+export type GetCurrentUserQuery = { __typename?: 'Query', currentUser: { __typename?: 'User', id: string, name: string, handle: string, avatarUrl: string, createdAt: string, stats?: { __typename?: 'UserStats', followerCount: number, followingCount: number, tweetCount: number } | null, favorites?: Array<{ __typename?: 'Favorite', tweet: { __typename?: 'Tweet', id: string } }> | null }, suggestions: Array<{ __typename?: 'Suggestion', name: string, handle: string, avatarUrl: string, reason: string }> };
 
 export type CreateTweetMutationVariables = Exact<{
   userId: Scalars['String'];
@@ -93,7 +104,7 @@ export type CreateTweetMutation = { __typename?: 'Mutation', createTweet: { __ty
 export type GetAllTweetsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetAllTweetsQuery = { __typename?: 'Query', tweets: Array<{ __typename?: 'Tweet', body: string, id: string, createdAt: string, updatedAt: string, author?: { __typename?: 'User', name: string, handle: string, coverUrl: string, avatarUrl: string, createdAt: string, updatedAt: string, id: string } | null, stats?: { __typename?: 'TweetStats', favoriteCount: number, retweetCount: number, commentCount: number } | null }> };
+export type GetAllTweetsQuery = { __typename?: 'Query', tweets: Array<{ __typename?: 'Tweet', body: string, id: string, createdAt: string, updatedAt: string, author?: { __typename?: 'User', name: string, handle: string, coverUrl: string, avatarUrl: string, createdAt: string, updatedAt: string, id: string } | null, stats?: { __typename?: 'TweetStats', favoriteCount: number, retweetCount: number, commentCount: number } | null, favoritedBy?: Array<{ __typename?: 'User', id: string, name: string, avatarUrl: string }> | null }> };
 
 
 export const GetCurrentUserDocument = gql`
@@ -108,6 +119,11 @@ export const GetCurrentUserDocument = gql`
       followerCount
       followingCount
       tweetCount
+    }
+    favorites {
+      tweet {
+        id
+      }
     }
   }
   suggestions {
@@ -200,6 +216,11 @@ export const GetAllTweetsDocument = gql`
       favoriteCount
       retweetCount
       commentCount
+    }
+    favoritedBy {
+      id
+      name
+      avatarUrl
     }
   }
 }

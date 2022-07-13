@@ -1,0 +1,58 @@
+type Mutation {
+  createTweet(userId: String!, body: String!): Tweet!
+  #what this is going to amount to when we start using this on the client is the parenthesis around the arguments are the same as the ones in the schema
+}
+type Query {
+  currentUser: User!
+  suggestions: [Suggestion!]!
+  tweets: [Tweet!]!
+  # in our case everyone sees eveyones tweets
+}
+type User {
+  id: String!
+  name: String!
+  handle: String!
+  coverUrl: String!
+  avatarUrl: String!
+  createdAt: String!
+  updatedAt: String!
+  stats: UserStats #nullable field. // as-needed basis
+  favorites: [Favorite!]
+}
+type Suggestion {
+  name: String!
+  handle: String!
+  avatarUrl: String!
+  reason: String!
+}
+
+type UserStats { ##followers, tweets, following that we will pretend to get optionally
+  #that's why it's not part of the User type
+  tweetCount: Int!
+  followingCount: Int!
+  followerCount: Int!
+}
+type Tweet {
+  id: String!
+  body: String!
+  createdAt: String!
+  updatedAt: String!
+  author: User
+  stats: TweetStats
+}
+
+type TweetStats {
+  favoriteCount: Int!
+  retweetCount: Int!
+  commentCount: Int!
+}
+
+type Favorite {
+  id: String!
+  tweet: Tweet!
+  user: User!
+  createdAt: String!
+  updatedAt: String!
+} ##favorites will involve 2 mutations. favorite is the join table 
+
+##like Query, mutation is a top level collection of resolvers.
